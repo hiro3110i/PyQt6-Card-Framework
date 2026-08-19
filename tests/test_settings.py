@@ -52,6 +52,11 @@ class WindowSettingsTests(unittest.TestCase):
         self.assertEqual((card.width(), card.height()), (320, 180))
         self.assertEqual(card._initial_coordinates, QtCore.QPoint(42, 64))
 
+    def test_uses_a_normal_top_level_window(self) -> None:
+        card = BaseCardWidget()
+
+        self.assertEqual(card.windowType(), QtCore.Qt.WindowType.Window)
+
     def test_invalid_json_uses_empty_settings(self) -> None:
         with tempfile.TemporaryDirectory() as home_directory:
             config_directory = Path(home_directory) / "config" / "pyqt6-cards"

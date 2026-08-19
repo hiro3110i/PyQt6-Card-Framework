@@ -33,9 +33,9 @@ class BaseCardWidget(QtWidgets.QWidget):
         self._initial_coordinates: QtCore.QPoint | None = None
         self._has_been_shown = False
         self.setWindowFlags(
-            QtCore.Qt.WindowType.FramelessWindowHint
+            QtCore.Qt.WindowType.Window
+            | QtCore.Qt.WindowType.FramelessWindowHint
             | QtCore.Qt.WindowType.WindowStaysOnTopHint
-            | QtCore.Qt.WindowType.Tool
         )
         self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
         self.resize(width, height)
