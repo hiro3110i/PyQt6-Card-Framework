@@ -1,0 +1,51 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.hypothesis/
+.tox/
+.nox/
+
+# Test and coverage output
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Virtual environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+ENV/
+**/ENV/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+.env
+.env.*
+.direnv/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/

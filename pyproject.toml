@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyqt6-card-widget"
+version = "0.1.0"
+description = "Cross-platform card-style desktop widgets for PyQt6"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["PyQt6>=6.5"]
+license = {text = "MIT"}
+keywords = ["PyQt6", "Qt", "desktop", "widget", "cross-platform"]
+classifiers = [
+	"Development Status :: 3 - Alpha",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: Microsoft :: Windows",
+	"Operating System :: MacOS",
+	"Operating System :: POSIX :: Linux",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3 :: Only",
+	"Topic :: Software Development :: User Interfaces",
+]
+
+[tool.setuptools.packages.find]
+include = ["card_widget*"]
