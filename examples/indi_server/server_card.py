@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """INDI Server Control Card Widget."""
 
 from __future__ import annotations
@@ -240,7 +241,7 @@ class IndiServerCard(BaseCardWidget):
         root = self.tree.invisibleRootItem()
         for i in range(root.childCount()):
             collect(root.child(i))
-        return selected
+        return list(dict.fromkeys(selected))
 
     def _apply_preset(self, preset_name: str) -> None:
         if preset_name not in self._presets:

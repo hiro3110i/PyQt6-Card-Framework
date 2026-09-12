@@ -111,28 +111,26 @@ class IndiDriverFinder:
         return binary_map, driver_list
 
     def get_categorized_drivers(self) -> dict[str, list[IndiDriverInfo]]:
-        """Returns a dict mapping group names to lists of installed IndiDriverInfo objects."""
+        """Return installed drivers, retaining all XML aliases for each binary."""
         installed_binaries = self.find_installed_binaries()
-        binary_map, _ = self.parse_xml_files()
+        binary_map, driver_list = self.parse_xml_files()
 
         result: dict[str, list[IndiDriverInfo]] = {}
 
-        for binary in sorted(installed_binaries):
-            if binary in binary_map:
-                info = binary_map[binary]
-            else:
-                # Binary without XML definition
-                clean_name = binary.removeprefix("indi_")
-                label = clean_name.replace("_", " ").title()
-                info = IndiDriverInfo(
-                    binary=binary,
-                    label=label,
-                    group="Uncategorized",
-                )
+        # One binary may have several hardware labels, such as ZWO AM3, AM5,
+        # and AM7. Keep every label so users can find their actual device.
+        for info in driver_list:
+            if info.binary in installed_binaries:
+                result.setdefault(info.group, []).append(info)
 
-            if info.group not in result:
-                result[info.group] = []
-            result[info.group].append(info)
+        for binary in sorted(installed_binaries - binary_map.keys()):
+            clean_name = binary.removeprefix("indi_")
+            info = IndiDriverInfo(
+                binary=binary,
+                label=clean_name.replace("_", " ").title(),
+                group="Uncategorized",
+            )
+            result.setdefault(info.group, []).append(info)
 
         # Sort drivers within each group by label
         for group in result:

@@ -27,6 +27,7 @@ flowchart TB
 - `/usr/bin/indi_*` (および `PATH` 内の `indi_*`) の実行可能ファイルを検索。
 - `/usr/share/indi/drivers.xml` および各 `indi_*.xml` をパース。
 - ドライバの **バイナリ名**（例: `indi_asi_ccd`）、**フレンドリー名**（例: `ZWO CCD`）、**メーカー**（例: `ZWO`）、**カテゴリ/グループ**（例: `CCDs`, `Telescopes`）を抽出し、ツリー構造で管理。
+- 同じバイナリを共有する機器別名（例: ZWO AM3、AM5、AM7）をすべて保持するため、機種名で検索可能。複数の別名を選んでも、サーバー起動時にはバイナリを一度だけ渡す。
 - XMLが存在しない孤立した `indi_*` バイナリも `Uncategorized` グループに補完して認識。
 
 #### 2. Service層 (`server_manager.py`)

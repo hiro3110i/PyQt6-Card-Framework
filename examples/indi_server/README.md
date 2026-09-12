@@ -27,6 +27,7 @@ flowchart TB
 - Searches for executable files matching `indi_*` in `/usr/bin/` (and across `PATH`).
 - Parses `/usr/share/indi/drivers.xml` and individual `indi_*.xml` files.
 - Extracts driver **binary name** (e.g., `indi_asi_ccd`), **friendly label** (e.g., `ZWO CCD`), **manufacturer** (e.g., `ZWO`), and **category/group** (e.g., `CCDs`, `Telescopes`), managing them in a hierarchical tree structure.
+- Retains every XML hardware alias for a shared binary (for example, ZWO AM3, AM5, and AM7), so each model can be found by name. The server command receives each selected binary only once.
 - Handles orphan `indi_*` binaries without XML definitions by assigning them to an `Uncategorized` group.
 
 #### 2. Service Layer (`server_manager.py`)
