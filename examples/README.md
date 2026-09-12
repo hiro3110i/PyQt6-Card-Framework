@@ -6,6 +6,7 @@ This directory contains runnable reference implementations for the framework. Th
 
 - [clock_card.py](clock_card.py): a minimal card with a timer-driven label
 - [bluetooth_device/](bluetooth_device): a complete device dashboard with subprocess and reader-thread lifecycle management
+- [indi_server/](indi_server): an INDI server control card with driver discovery, tree classification, preset management, and QProcess lifecycle management
 
 Run a script from the repository root or execute it directly:
 

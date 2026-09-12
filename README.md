@@ -36,9 +36,9 @@ The included examples run directly from a checkout with a system PyQt6 installat
 
 ```mermaid
 flowchart TB
-    Framework[card_widget\nwindow and lifecycle]
-    Content[Card implementation\nUI and actions]
-    Service[Service layer\ndata source]
+    Framework["card_widget<br/>window and lifecycle"]
+    Content["Card implementation<br/>UI and actions"]
+    Service["Service layer<br/>data source"]
 
     Framework --> Content
     Content --> Service
